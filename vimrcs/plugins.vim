@@ -287,19 +287,19 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  YouCompleteMe
 "  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set completeopt-=
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
-let g:ycm_add_preview_to_completeopt = 1
+" set completeopt-=
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+" let g:ycm_add_preview_to_completeopt = 1
 
-noremap <leader>[ :YcmCompleter GoToDeclaration<cr>
-noremap <leader>] :YcmCompleter GetDoc<cr>
-noremap <leader>; :YcmCompleter GoToReferences<cr>
-noremap <leader>' :YcmCompleter GoToImplementation<cr>
-noremap <leader>m :YcmCompleter GoToParent<cr>
-noremap <leader>. :YcmCompleter GoTo<cr>
-noremap <leader>j  :YcmCompleter<cr>
+" noremap <leader>[ :YcmCompleter GoToDeclaration<cr>
+" noremap <leader>] :YcmCompleter GetDoc<cr>
+" noremap <leader>; :YcmCompleter GoToReferences<cr>
+" noremap <leader>' :YcmCompleter GoToImplementation<cr>
+" noremap <leader>m :YcmCompleter GoToParent<cr>
+" noremap <leader>. :YcmCompleter GoTo<cr>
+" noremap <leader>j  :YcmCompleter<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Clang Format
@@ -332,9 +332,9 @@ filetype plugin on
 "" vim-fugitive
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <silent> <C-m> :Git<cr>
+noremap <silent> <leader>g :Git<cr>
 noremap <silent> <C-a> :Git log<cr>
-noremap <silent> <C-s> :Git push<cr>
+" noremap <silent> <C-s> :Git push<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Vista
@@ -366,3 +366,46 @@ noremap <silent> K :Rg<C-R><C-W><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:hexmode_xxd_options = '-cols 32 -g 1'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Coc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> <leader>[ <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>] <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> <leader>. <Plug>(coc-definition)
+nmap <silent> <leader>/ <Plug>(coc-type-definition)
+nmap <silent> <leader>' <Plug>(coc-implementation)
+nmap <silent> <leader>; <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>r <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)

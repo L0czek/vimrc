@@ -384,3 +384,10 @@ nnoremap <silent> <C-left> :vertical resize -2<cr>
 nnoremap <silent> <C-down> :resize +2<cr>
 nnoremap <silent> <C-up> :resize -2<cr>
 nnoremap <silent> <C-right> :vertical resize +2<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Whitechars
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set list

@@ -33,7 +33,8 @@ Plug 'amix/vim-zenroom2', { 'for': 'goyo' }
 Plug 'vim-utils/vim-man', { 'on': 'Man' }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'sheerun/vim-polyglot'
-Plug 'ycm-core/YouCompleteMe', { 'on': 'YcmCompleter' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'ycm-core/YouCompleteMe', { 'on': 'YcmCompleter' }
 " Plug 'rhysd/vim-clang-format', { 'on': 'ClangFormat' }
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 " Plug 'vivien/vim-linux-coding-style', { 'on': 'LinuxCodingStyle' }
