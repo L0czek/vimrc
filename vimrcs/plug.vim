@@ -43,6 +43,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'fidian/hexmode'
+Plug 'lambdalisue/suda.vim'
 
 call plug#end()
 

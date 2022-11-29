@@ -21,10 +21,13 @@ nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command! T execute 'w !sudo tee % > /dev/null' <bar> edit!
+" Does not work in NeoVIM
+" command! T execute 'w !sudo tee % > /dev/null' <bar> edit!
 
+" Fix cursor
+set guicursor+=i:block
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -391,3 +394,17 @@ nnoremap <silent> <C-right> :vertical resize +2<cr>
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set list
+
+noremap <leader>C "*y
+noremap <leader>P "*p
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Terminal mode
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+tmap <C-j> <C-W>j
+tmap <C-k> <C-W>k
+tmap <C-h> <C-W>h
+tmap <C-l> <C-W>l
+

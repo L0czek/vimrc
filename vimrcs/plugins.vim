@@ -304,8 +304,8 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Clang Format
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>C :ClangFormat<cr>
-let g:clang_format#detect_style_file=1
+" nmap <leader>C :ClangFormat<cr>
+" let g:clang_format#detect_style_file=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commentary
@@ -409,3 +409,23 @@ nmap <leader>r <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Termdebug
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+packadd termdebug
+let g:termdebug_popup = 0
+let g:termdebug_wide = 163
+let g:termdebug_disasm_window = 15
+" let termdebugger="gdb-multiarch"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" suda.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command T execute 'SudaWrite'
