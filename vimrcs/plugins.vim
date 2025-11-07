@@ -419,11 +419,11 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 """ Termdebug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-packadd termdebug
-let g:termdebug_popup = 0
-let g:termdebug_wide = 163
-let g:termdebug_disasm_window = 15
-" let termdebugger="gdb-multiarch"
+"packadd termdebug
+"let g:termdebug_popup = 0
+"let g:termdebug_wide = 163
+"let g:termdebug_disasm_window = 15
+"" let termdebugger="gdb-multiarch"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ suda.vim
